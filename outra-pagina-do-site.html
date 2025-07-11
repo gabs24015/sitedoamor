@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Romântico - O Quanto Você Conhece Sobre Nós? 💘</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Segoe+UI&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #f8bbd0);
+      font-family: 'PlayFair Display' , serif;
+      text-align: center;
+      color: #880e4f;
+      padding: 30px;
+      background-image: url('fundo.jpg'); /* imagem sutil com corações */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    h1 {
+      font-family: 'PlayFair Display', serif;
+      font-size: 3em;
+      color: #ad1457;
+      text-shadow: 2px 2px #fff0f5;
+      margin-bottom: 30px;
+    }
+
+    .quiz-container {
+      background-color: rgba(255, 240, 250, 0.95);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(136, 14, 79, 0.3);
+      display: none;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .quiz-container.active {
+      display: block;
+    }
+
+    .question {
+      font-size: 1.4em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: linear-gradient(to right, #f06292, #ec407a);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(to right, #ec407a, #f06292);
+    }
+
+    #result {
+      font-size: 1.5em;
+      margin-top: 30px;
+      color: #6a1b9a;
+      text-shadow: 1px 1px white;
+    }
+
+    .hearts {
+      font-size: 2em;
+      animation: float 1.5s infinite alternate ease-in-out;
+      color: #ff4081;
+      margin-top: 10px;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz Romântico 💘<br>O Quanto Você Conhece Sobre Nós?</h1>
+
+  <!-- PERGUNTA 1 -->
+  <div class="quiz-container active" id="container1">
+    <div class="question">🌸 Qual foi o dia em que nos vimos pela primeira vez?</div>
+    <button onclick="checkAnswer('12/04/2025', 1)">💖 12/04/2025</button>
+    <button onclick="checkAnswer('17/04/2025', 1)">💗 17/04/2025</button>
+    <button onclick="checkAnswer('06/04/2025', 1)">💕 06/04/2025</button>
+    <div id="feedback1"></div>
+  </div>
+
+  <!-- PERGUNTA 2 -->
+  <div class="quiz-container" id="container2">
+    <div class="question">🌷 Qual foi o dia em que nos "conhecemos"?</div>
+    <button onclick="checkAnswer('06/06/2025', 2)">💝 06/06/2025</button>
+    <button onclick="checkAnswer('06/04/2025', 2)">💘 06/04/2025</button>
+    <button onclick="checkAnswer('07/04/2025', 2)">💞 07/04/2025</button>
+    <div id="feedback2"></div>
+  </div>
+
+  <!-- PERGUNTA 3 -->
+  <div class="quiz-container" id="container3">
+    <div class="question">🎶 Qual é a nossa música?</div>
+    <button onclick="checkAnswer('Sorriso Resplandecente - Ricardo Junior', 3)">🎵 Sorriso Resplandecente - Ricardo Junior</button>
+    <button onclick="checkAnswer('Só eu e você - Vanessa da Mata', 3)">🎶 Só eu e você - Vanessa da Mata</button>
+    <button onclick="checkAnswer('Pra sempre com você - Jorge e Mateus', 3)">💖 Pra sempre com você - Jorge e Mateus</button>
+    <div id="feedback3"></div>
+  </div>
+
+  <!-- RESULTADO FINAL -->
+  <div id="result"></div>
+
+  <script>
+    let score = 0;
+
+    const correctAnswers = {
+      1: '12/04/2025',
+      2: '06/04/2025',
+      3: 'Pra sempre com você - Jorge e Mateus'
+    };
+
+    function checkAnswer(answer, questionNumber) {
+      const feedback = document.getElementById(`feedback${questionNumber}`);
+      const container = document.getElementById(`container${questionNumber}`);
+
+      if (answer === correctAnswers[questionNumber]) {
+        feedback.innerHTML = "✅ Acertou! Você conhece mesmo sobre nós 😍";
+        score++;
+      } else {
+        feedback.innerHTML = "❌ Eita, errou! A memória de peixe não deixou voce lembrar né ";
+      }
+
+      const buttons = container.querySelectorAll('button');
+      buttons.forEach(btn => btn.disabled = true);
+
+      setTimeout(() => {
+        container.classList.remove('active');
+        const nextContainer = document.getElementById(`container${questionNumber + 1}`);
+        if (nextContainer) {
+          nextContainer.classList.add('active');
+        } else {
+          document.getElementById('result').innerHTML =
+            `✨ Fim do Quiz! Você acertou <strong>${score}</strong> de 3 perguntas. <br><span class="hearts">💞💖💕</span><br><em>Redirecionando para a surpresa...</em>`;
+
+          setTimeout(() => {
+  if (score === 3) {
+    window.location.href = 'surpresa.html';
+  } else {
+    window.location.href = 'quase.html';
+  }
+}, 2500);
+
+        }
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
+
+

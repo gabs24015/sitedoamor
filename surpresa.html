@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Você Acertou Tudo! 💝</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffe6f0, #ffccda);
+      overflow: hidden;
+      text-align: center;
+      color: #880e4f;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin-top: 80px;
+      z-index: 10;
+      position: relative;
+    }
+
+    .mensagem {
+      font-size: 1.5em;
+      margin-top: 20px;
+      background: #fff0f5;
+      display: inline-block;
+      padding: 20px;
+      border-radius: 20px;
+      border: 2px dashed #ff99cc;
+    }
+
+    .balao {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      background: pink;
+      border-radius: 50% 50% 50% 50%;
+      transform: rotate(-45deg);
+      animation: subir 10s linear infinite;
+      opacity: 0.8;
+    }
+
+    .balao::before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 20px;
+      background: #aaa;
+      top: 60px;
+      left: 50%;
+    }
+
+    @keyframes subir {
+      0% {
+        bottom: -80px;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 110%;
+        opacity: 0;
+      }
+    }
+
+    .balao:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .balao:nth-child(2) { left: 25%; animation-delay: 2s; }
+    .balao:nth-child(3) { left: 40%; animation-delay: 4s; }
+    .balao:nth-child(4) { left: 60%; animation-delay: 1s; }
+    .balao:nth-child(5) { left: 80%; animation-delay: 3s; }
+  </style>
+</head>
+<body onload="tocarSom()">
+
+  <!-- Balões subindo -->
+  <div class="balao"></div>
+  <div class="balao"></div>
+  <div class="balao"></div>
+  <div class="balao"></div>
+  <div class="balao"></div>
+
+  <!-- Mensagem de carinho -->
+  <h1>Parabéns, meu amor! 💖</h1>
+  <div class="mensagem">
+    Você acertou tudo no quiz e me deixou ainda mais apaixonada! 💘<br>
+    Obrigada por ser tão incrível! 😍
+  </div>
+
+  <!-- Efeito sonoro -->
+  <audio id="somPresente" src="https://www.soundjay.com/human/sounds/applause-8.mp3" preload="auto"></audio>
+
+  <script>
+    function tocarSom() {
+      document.getElementById("somPresente").play();
+    }
+  </script>
+
+  <script>
+  setTimeout(() => {
+    window.location.href = "mesversario.html";
+  }, 3000); 
+</script>
+
+
+</body>
+</html>
+

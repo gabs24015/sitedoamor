@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Quase Lá 💘</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Segoe+UI&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: 'Segoe UI', sans-serif;
+      color: #880e4f;
+      text-align: center;
+      background: linear-gradient(to bottom, #fce4ec, #f8bbd0);
+      background-image: url('luffy.jpg');
+      background-size: cover;
+      background-repeat: repeat;
+      background-attachment: fixed;
+      animation: moverFundo 30s linear infinite;
+    }
+
+    @keyframes moverFundo {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    h1 {
+      font-family: 'PlayFair Display' , serif;
+      font-size: 3.5em;
+      color: #e94788;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px #fff0f5;
+    }
+
+    p {
+      font-size: 1.4em;
+      margin: 30px auto;
+      max-width: 600px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(136, 14, 79, 0.3);
+    }
+
+    .hearts {
+      font-size: 2em;
+      margin-top: 20px;
+      animation: float 1.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quase lá... 💔</h1>
+  <p>Você não acertou tudo, mas ainda merece o melhor que eu posso oferecer. 💗<br>
+  Cada resposta errada só mostra que ainda temos muito o que viver, rir e descobrir juntinhos. 💘</p>
+  <div class="hearts">💞💖💕</div>
+
+  <script>
+  setTimeout(() => {
+    window.location.href = "mesversario.html";
+  }, 3000);
+</script>
+
+</body>
+</html>
